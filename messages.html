@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang='en' class=''>
+
+<head>
+
+    <meta charset='UTF-8'>
+    <title>My Messages</title>
+
+    <meta name="robots" content="noindex">
+
+    <link rel="shortcut icon" type="image/x-icon"
+        href="https://cpwebassets.codepen.io/assets/favicon/favicon-aec34940fbc1a6e787974dcd360f2c6b63348d4b1f4e06c77743096d55480f33.ico">
+    <link rel="mask-icon"
+        href="https://cpwebassets.codepen.io/assets/favicon/logo-pin-b4b4269c16397ad2f0f7a01bcdf513a1994f4c94b8af2f191c09eb0d601762b1.svg"
+        color="#111">
+    <link rel="canonical" href="https://codepen.io/ambercheydesigns/pen/GRGrLLr?editors=1111">
+
+    <style id="INLINE_PEN_STYLESHEET_ID">
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+            transition: 0.2s;
+        }
+
+        * -webkit-scrollbar {
+            display: none;
+        }
+
+        body {
+            width: 100%;
+            height: 100vh;
+            overflow: hidden;
+            font-family: Cabin, sans-serif;
+            background-color: #94D4BB;
+            color: #000;
+        }
+
+        main {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            -ms-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+            width: 375px;
+            height: 600px;
+            display: flex;
+            flex-flow: column nowrap;
+            border-radius: 20px;
+            overflow: hidden;
+            background-image: linear-gradient(to bottom right, #6FD08C, #7B9EA8, #78586F);
+            filter: drop-shadow(0px 0px 10px #2B4950);
+        }
+
+        #content {
+            padding: 1rem;
+            overflow: scroll;
+            display: flex;
+            flex-direction: column;
+        }
+
+        #content::-webkit-scrollbar {
+            display: none;
+        }
+
+        #content img {
+            width: 75px;
+            height: 75px;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+
+        #content h3 {
+            font-weight: 600;
+        }
+
+        #content h6 {
+            font-weight: 400;
+        }
+
+        #content p {
+            margin-top: 0.5rem;
+            text-align: left;
+            font-size: 0.9em;
+        }
+
+        #content .message-in {
+            margin-bottom: 1rem;
+            padding: 1rem;
+            display: grid;
+            grid-template-columns: 1fr 4fr;
+            grid-template-rows: 1fr;
+            border: 2px solid white;
+            border-radius: 20px;
+            background-color: rgba(255, 255, 255, 0.3);
+        }
+
+        #content .message-in img {
+            grid-column: 1;
+            grid-row: 1;
+        }
+
+        #content .message-in h3,
+        #content .message-in h6,
+        #content .message-in p {
+            padding: 0 1rem;
+            grid-column: 2;
+            grid-row: 1;
+        }
+
+        #content .message-out {
+            margin-bottom: 1rem;
+            padding: 1rem;
+            display: grid;
+            grid-template-columns: 4fr 1fr;
+            grid-template-rows: 1fr;
+            border: 2px solid white;
+            border-radius: 20px;
+            background-color: rgba(255, 255, 255, 0.4);
+        }
+
+        #content .message-out img {
+            grid-column: 2;
+            grid-row: 1;
+        }
+
+        #content .message-out h3,
+        #content .message-out h6,
+        #content .message-out p {
+            grid-column: 1;
+            grid-row: 1;
+        }
+
+        #action {
+            flex: 1;
+            display: flex;
+            flex-flow: column nowrap;
+        }
+
+        #action h5 {
+            padding: 0.3rem 0 0rem 1rem;
+            flex: 1;
+            border-radius: 10px 10px 0 0;
+            background-color: #3D6972;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        #action .sending {
+            display: flex;
+            flex-flow: row nowrap;
+            justify-content: center;
+            align-items: center;
+            gap: 1;
+            flex: 2;
+            border-radius: 0 0 20px 20px;
+            background-color: #2B4950;
+        }
+
+        #action .sending textarea {
+            height: 31.4px;
+            width: 80%;
+            padding: 0.4rem;
+            border: none;
+            border-radius: 5px;
+            font-family: Cabin, sans-serif;
+            background-color: #3D6972;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        #action .sending button {
+            margin-left: 0.5rem;
+            padding: 0.2rem;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.4rem;
+            background-color: #3D6972;
+            color: #6FD08C;
+        }
+
+        .message-in:hover,
+        .message-out:hover {
+            border: 2px solid #3D6972 !important;
+        }
+
+        button:hover {
+            color: #A7E8BB !important;
+        }
+
+        button:active {
+            color: #2B4950 !important;
+        }
+
+        a {
+            text-decoration: underline;
+            color: blue;
+        }
+    </style>
+
+
+    <script
+        src="https://cpwebassets.codepen.io/assets/editor/iframe/iframeConsoleRunner-6bce046e7128ddf9391ccf7acbecbf7ce0cbd7b6defbeb2e217a867f51485d25.js"></script>
+    <script
+        src="https://cpwebassets.codepen.io/assets/editor/iframe/iframeRefreshCSS-44fe83e49b63affec96918c9af88c0d80b209a862cf87ac46bc933074b8c557d.js"></script>
+    <script
+        src="https://cpwebassets.codepen.io/assets/editor/iframe/iframeRuntimeErrors-4f205f2c14e769b448bcf477de2938c681660d5038bc464e3700256713ebe261.js"></script>
+</head>
+
+<body>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400;0,700;1,400&display=swap"
+        rel="stylesheet">
+
+    <script src="https://kit.fontawesome.com/1f96c39da6.js" crossorigin="anonymous"></script>
+
+    <body>
+        <main>
+            <section id="content">
+                <div class="message-in">
+                    <img
+                        src=https://st3.depositphotos.com/6672868/13701/v/450/depositphotos_137014128-stock-illustration-user-profile-icon.jpg&auto=format&fit=crop&w=1364&q=80>
+                    <div class="mi-text">
+                        <h3>JK-SBIUPI</h3>
+                        <h6>Today, 4:34pm</h6>
+                        <p>Dear User, your A/c9773 was credited with Rs. 290.</p>
+                    </div>
+                </div>
+                <div class="message-out">
+                    <img
+                        src=https://st3.depositphotos.com/6672868/13701/v/450/depositphotos_137014128-stock-illustration-user-profile-icon.jpg&auto=format&fit=crop&w=1364&q=80>
+                    <div class="mo-text">
+                        <h3>AD-ADHAAR</h3>
+                        <h6>Today, 4:40pm</h6>
+                        <p>Your Aadhaar verification is pending. Please do the same ASAP.</p>
+                    </div>
+                </div>
+                <div class="message-in">
+                    <img
+                        src=https://images.unsplash.com/photo-1507808973436-a4ed7b5e87c9?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1480&q=80>
+                    <div class="mi-text">
+                        <h3>Sameer</h3>
+                        <h6>Today, 4:41pm</h6>
+                        <p>Thank you for contacting Amazon today. </p>
+                        <p>Please leave a feedback <a>here</a>.</p>
+                    </div>
+                </div>
+                <div class="message-out">
+                    <img
+                        src=https://st3.depositphotos.com/6672868/13701/v/450/depositphotos_137014128-stock-illustration-user-profile-icon.jpg&auto=format&fit=crop&w=1364&q=80>
+                    <div class="mo-text">
+                        <h3>FLIPK@RT</h3>
+                        <h6>Today, 4:42pm</h6>
+                        <p>Your order is on hold.</p>
+                        <p>Pay on https://payHere.com/?twist=linen...
+                        </p>
+                    </div>
+                </div>
+                <div class="message-in">
+                    <img
+                        src=https://st3.depositphotos.com/6672868/13701/v/450/depositphotos_137014128-stock-illustration-user-profile-icon.jpg&auto=format&fit=crop&w=1364&q=80>
+                    <div class="mo-text">
+                        <h3>AD-BANK</h3>
+                        <h6>Today, 4:40pm</h6>
+                        <p>Your new account has been opened successfully.</p>
+                    </div>
+                </div>
+
+                </div>
+            </section>
+
+
+        </main>
+        <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+    </body>
+
+    <script
+        src="https://cpwebassets.codepen.io/assets/common/stopExecutionOnTimeout-2c7831bb44f98c1391d6a4ffda0e1fd302503391ca806e7fcc7b9b87197aec26.js"></script>
+
+</body>
+
+</html>
